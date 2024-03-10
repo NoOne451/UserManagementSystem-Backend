@@ -17,6 +17,10 @@ app.use(cookieParser());
 
 app.use('/auth', authRouter);
 
+app.use((err, req, res, next) => {
+  res.status(404).send({ error: 'Page not found' });
+});
+
 // Database connection and Server initialization
 
 const port = process.env.PORT || 8080;
