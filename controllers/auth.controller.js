@@ -113,8 +113,8 @@ export const verifyOptController = async (req, res) => {
       secure: process.env.ENV !== 'dev', // ensure secure is true in production
       sameSite: 'strict',
       maxAge: 24 * 60 * 60 * 1000,
-      domain: '.vercel.app', // adjust to your frontend domain
-      path: '/', // adjust to your actual path if necessary
+      // domain: '.vercel.app', // adjust to your frontend domain
+      // path: '/', // adjust to your actual path if necessary
     });
 
     res.status(201).send({
