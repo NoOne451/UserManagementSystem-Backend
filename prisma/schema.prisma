@@ -19,4 +19,8 @@ model  user{
   email String @unique
   username String
   password String
+  otp String?
+  otpExpiry DateTime?
+  profileImgUrl String?
+  profileImgId String? 
 }
