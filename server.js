@@ -13,7 +13,8 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_BASE_URL, 'https://www.thunderclient.com'],
+    // origin: [process.env.FRONTEND_BASE_URL, 'https://www.thunderclient.com'],
+    origin: '*',
     credentials: true,
   })
 );
