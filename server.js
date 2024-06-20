@@ -19,6 +19,12 @@ app.use(
     credentials: true,
   })
 );
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', process.env.FRONTEND_BASE_URL);
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 app.use(express.json());
 app.use(cookieParser());
 
