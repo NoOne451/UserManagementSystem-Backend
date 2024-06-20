@@ -110,7 +110,7 @@ export const verifyOptController = async (req, res) => {
     );
     res.cookie('jwt', token, {
       httpOnly: true,
-      secure: false,
+      secure: process.env.ENV === 'dev' ? false : true,
       sameSite: 'strict',
       maxAge: 24 * 60 * 60 * 1000,
     });
@@ -159,7 +159,7 @@ export const resendOtpController = async (req, res) => {
 };
 export const logoutController = async (req, res) => {
   res.clearCookie('jwt');
-  res.send({ data: 'success' });
+  res.send({ data: 'success', message: 'success' });
 };
 
 export const checkAuthStatusController = async (req, res) => {
