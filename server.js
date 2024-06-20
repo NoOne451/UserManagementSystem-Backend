@@ -22,6 +22,9 @@ app.use(cookieParser());
 
 // Routes
 
+app.get('/', (req, res) => {
+  res.send('User Management System Server');
+});
 app.use('/auth', authRouter);
 
 app.use((req, res, next) => {
