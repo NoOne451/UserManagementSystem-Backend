@@ -110,8 +110,8 @@ export const verifyOptController = async (req, res) => {
     );
     res.cookie('jwt', token, {
       httpOnly: true,
-      secure: process.env.ENV !== 'dev', // ensure secure is true in production
-      sameSite: 'strict',
+      secure: true, // ensure secure is true in production
+      sameSite: 'None',
       maxAge: 24 * 60 * 60 * 1000,
     });
 
