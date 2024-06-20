@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import joi from 'joi';
 export const authorizeMiddleware = (req, res, next) => {
   try {
-    console.log(req.cookies);
+    console.log('cookies', req.cookies);
     const token = req.cookies?.jwt;
     if (!token) {
       return res
