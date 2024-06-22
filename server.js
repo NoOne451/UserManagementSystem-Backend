@@ -30,10 +30,10 @@ app.use(cookieParser());
 
 // Routes
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('User Management System Server');
 });
-app.use('/auth', authRouter);
+app.use('/api/auth', authRouter);
 
 app.use((req, res, next) => {
   res.status(404).send('Invalid endpoint,please check other endpoints');
