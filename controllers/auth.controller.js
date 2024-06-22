@@ -113,6 +113,8 @@ export const verifyOptController = async (req, res) => {
       secure: process.env.ENV !== 'dev',
       sameSite: 'strict',
       path: '/',
+
+      domain: '.onrender.com',
       maxAge: 24 * 60 * 60 * 1000,
     });
 
