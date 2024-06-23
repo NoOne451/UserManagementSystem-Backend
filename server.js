@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { prisma } from './prisma/index.js';
 import authRouter from './routes/auth.route.js';
 import cookieParser from 'cookie-parser';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 
 // Middleware & Config
 
