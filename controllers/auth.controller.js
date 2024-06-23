@@ -111,7 +111,7 @@ export const verifyOptController = async (req, res) => {
     res.cookie('jwt', token, {
       httpOnly: true, // Prevent access by JavaScript
       secure: true, // Ensure the cookie is sent over HTTPS
-      domain: '.onrender.com', // Make cookie available to all subdomains of onrender.com
+      // domain: '.onrender.com', // Make cookie available to all subdomains of onrender.com
       sameSite: 'none',
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days in milliseconds
     });
