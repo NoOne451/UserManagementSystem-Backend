@@ -20,14 +20,23 @@ app.use(
   })
 );
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', process.env.FRONTEND_BASE_URL);
-  res.header('Access-Control-Allow-Credentials', 'true');
-  next();
-});
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(
+  '/api',
+  createProxyMiddleware({
+    target: 'https://usermanagementsystem-backend.onrender.com',
+    changeOrigin: true,
+    secure: true,
+    xfwd: true,
+    cookieDomainRewrite: 'usermanagementsystem-frontend.onrender.com',
+    onProxyRes: function (proxyRes, req, res) {
+      proxyRes.headers['access-control-allow-origin'] =
+        'https://usermanagementsystem-frontend.onrender.com';
+      proxyRes.headers['access-control-allow-credentials'] = 'true';
+    },
+  })
+);
 // Routes
 
 app.get('/api', (req, res) => {
