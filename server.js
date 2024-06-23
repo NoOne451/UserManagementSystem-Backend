@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 import { prisma } from './prisma/index.js';
 import authRouter from './routes/auth.route.js';
 import cookieParser from 'cookie-parser';
-import { createProxyMiddleware } from 'http-proxy-middleware';
 
 // Middleware & Config
 
@@ -23,21 +22,7 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-  '/api',
-  createProxyMiddleware({
-    target: 'https://usermanagementsystem-backend.onrender.com',
-    changeOrigin: true,
-    secure: true,
-    xfwd: true,
-    cookieDomainRewrite: 'usermanagementsystem-frontend.onrender.com',
-    onProxyRes: function (proxyRes, req, res) {
-      proxyRes.headers['access-control-allow-origin'] =
-        'https://usermanagementsystem-frontend.onrender.com';
-      proxyRes.headers['access-control-allow-credentials'] = 'true';
-    },
-  })
-);
+
 // Routes
 
 app.get('/api', (req, res) => {
