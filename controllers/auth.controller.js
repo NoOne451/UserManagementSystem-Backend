@@ -164,7 +164,7 @@ export const logoutController = async (req, res) => {
     secure: true, // ensure it matches the 'secure' flag used when setting the cookie
     sameSite: 'none', // ensure it matches the 'sameSite' attribute used when setting the cookie
   });
-  const token = req.cookies('jwt');
+  const token = req.cookies?.jwt;
   console.log('token', token);
   res.send({ data: 'success', message: 'success' });
 };
