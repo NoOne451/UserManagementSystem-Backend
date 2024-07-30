@@ -1,6 +1,6 @@
 Here is the complete README file in Markdown format:
 
-```markdown
+
 # User Management System Backend
 
 This repository contains the backend code for the User Management System, developed using Express.js.
@@ -36,7 +36,6 @@ To get started with the project, clone the repository and install the necessary 
 git clone https://github.com/yourusername/usermanagementsystem-backend.git
 cd usermanagementsystem-backend
 npm install
-```
 
 ## Configuration
 
