@@ -1,4 +1,4 @@
-Here is the updated README file reflecting the current implementation and routes of your project:
+
 
 
 # User Management System Backend
@@ -31,8 +31,8 @@ The User Management System backend provides a RESTful API to handle user data. I
 To get started with the project, clone the repository and install the necessary dependencies:
 
 ```bash
-git clone https://github.com/yourusername/usermanagementsystem-backend.git
-cd usermanagementsystem-backend
+git clone https://github.com/NoOne451/UserManagementSystem-Backend.git
+cd UserManagementSystem-Backend
 npm install
 ```
 
@@ -41,7 +41,7 @@ npm install
 Create a `.env` file in the root directory and add the following environment variables:
 
 ```env
-PORT=your_port_number
+PORT=3000
 DATABASE_URL=your_database_url
 JWT_SECRET=your_jwt_secret
 ENV=your_environment
@@ -133,6 +133,4 @@ Contributions are welcome! Please fork the repository and create a pull request 
 3. Commit your changes (`git commit -m 'Add your feature'`)
 4. Push to the branch (`git push origin feature/your-feature`)
 5. Create a new Pull Request
-
-
 
