@@ -1,4 +1,4 @@
-Here is the complete README file in Markdown format:
+Here is the updated README file reflecting the current implementation and routes of your project:
 
 
 # User Management System Backend
@@ -19,13 +19,11 @@ This repository contains the backend code for the User Management System, develo
 
 ## Introduction
 
-The User Management System backend provides a RESTful API to handle user data. It supports user registration, authentication, and basic CRUD operations.
+The User Management System backend provides a RESTful API to handle user data. It supports user registration, authentication, and basic user management operations.
 
 ## Features
 
 - User registration and authentication
-- User profile management
-- CRUD operations for user data
 - JWT-based authentication
 
 ## Installation
@@ -36,6 +34,7 @@ To get started with the project, clone the repository and install the necessary 
 git clone https://github.com/yourusername/usermanagementsystem-backend.git
 cd usermanagementsystem-backend
 npm install
+```
 
 ## Configuration
 
@@ -45,6 +44,10 @@ Create a `.env` file in the root directory and add the following environment var
 PORT=3000
 DATABASE_URL=your_database_url
 JWT_SECRET=your_jwt_secret
+ENV=your_environment
+FRONTEND_BASE_URL=your_frontend_base_url
+EMAIL=your_email
+PASSWORD=your_password
 ```
 
 ## Usage
@@ -61,7 +64,7 @@ The server will be running on `http://localhost:3000`.
 
 ### Authentication
 
-- **POST /api/auth/register**
+- **POST /signup**
   - Registers a new user.
   - Request body:
     ```json
@@ -72,7 +75,7 @@ The server will be running on `http://localhost:3000`.
     }
     ```
 
-- **POST /api/auth/login**
+- **POST /login**
   - Logs in an existing user.
   - Request body:
     ```json
@@ -82,30 +85,37 @@ The server will be running on `http://localhost:3000`.
     }
     ```
 
-### User Management
+- **POST /verify-otp**
+  - Verifies the OTP sent to the user's email.
 
-- **GET /api/users**
-  - Retrieves a list of all users.
+- **POST /resend-otp**
+  - Resends the OTP to the user's email.
+
+- **GET /logout**
+  - Logs out the authenticated user.
   - Requires authentication.
 
-- **GET /api/users/:id**
-  - Retrieves a specific user by ID.
-  - Requires authentication.
+- **GET /checkStatus**
+  - Checks the authentication status of the user.
 
-- **PUT /api/users/:id**
-  - Updates a specific user by ID.
-  - Requires authentication.
+- **POST /forgot-password**
+  - Sends a password reset link to the user's email.
   - Request body:
     ```json
     {
-      "username": "newusername",
-      "email": "newemail@example.com"
+      "email": "example@example.com"
     }
     ```
 
-- **DELETE /api/users/:id**
-  - Deletes a specific user by ID.
-  - Requires authentication.
+- **POST /reset-password**
+  - Resets the user's password using the token from the reset link.
+  - Request body:
+    ```json
+    {
+      "token": "reset_token",
+      "newPassword": "new_password"
+    }
+    ```
 
 ## Technologies Used
 
